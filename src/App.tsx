@@ -5,8 +5,10 @@ import TvPage from "./tvPage/TvPage"
 import CollapsibleNav from "./leftMeny/CollapsibleNav";;
 
 export interface RaceData {
-  flag: "none" | "unsportsmanlike" | "disqualified" | "checker" | "carDamage" | "sessionSuspended";
-  number: string;
+  flag_1: "none" | "unsportsmanlike" | "disqualified" | "checker" | "carDamage" | "sessionSuspended";
+  number_1: string;
+  flag_2: "none" | "unsportsmanlike" | "disqualified" | "checker" | "carDamage" | "sessionSuspended";
+  number_2: string;
   lapsLeft: number;
 }
 

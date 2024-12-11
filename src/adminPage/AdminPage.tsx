@@ -6,7 +6,7 @@ interface AdminPageProps {
   setRaceData: React.Dispatch<React.SetStateAction<RaceData>>;
 }
 
-const flagColors: Record<RaceData["flag"], string> = {
+const flagColors: Record<RaceData["flag_1"], string> = {
   none: "none-flag",
   unsportsmanlike: "unsportsmanlike",
   disqualified: "disqualified",
@@ -17,11 +17,19 @@ const flagColors: Record<RaceData["flag"], string> = {
 
 const AdminPage: React.FC<AdminPageProps> = ({ raceData, setRaceData }) => {
   const handleFlagChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setRaceData({ ...raceData, flag: e.target.value as RaceData["flag"] });
+    setRaceData({ ...raceData, flag_1: e.target.value as RaceData["flag_1"] });
   };
 
   const handleNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRaceData({ ...raceData, number: e.target.value });
+    setRaceData({ ...raceData, number_1: e.target.value });
+  };
+
+  const handleFlagChange2 = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setRaceData({ ...raceData, flag_2: e.target.value as RaceData["flag_2"] });
+  };
+
+  const handleNumberChange2 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRaceData({ ...raceData, number_2: e.target.value });
   };
 
   const handleLapsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,77 +37,114 @@ const AdminPage: React.FC<AdminPageProps> = ({ raceData, setRaceData }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row h-full w-full overflow-hidden">
-      {/* Vänster: Formulär */}
-      <div className="flex-1 flex flex-col items-center justify-center p-8 bg-black text-white">
-        <div className="w-full max-w-md">
-          <h1 className="text-4xl font-bold mb-6 text-center">Admin Panel</h1>
+    <div className="flex flex-col h-full w-full overflow-hidden">
+      {/* Header */}
+      <header className="w-full bg-gray-300 text-black py-6">
+        <h1 className="text-5xl font-bold text-center">Admin Panel</h1>
+      </header>
 
-          {/* Flagga */}
-          <div className="mb-6">
-            <label className="block text-2xl font-semibold mb-2">
-              Select Flag
-            </label>
-            <select
-              value={raceData.flag}
-              onChange={handleFlagChange}
-              className="w-full p-4 text-xl border rounded-md bg-gray-700 text-white"
-            >
-              <option value="none">None</option>
-              <option value="unsportsmanlike">Unsportsmanlike Behaviour</option>
-              <option value="disqualified">Disqualified</option>
-              <option value="checker">Checker</option>
-              <option value="carDamage">Car Damage</option>
-              <option value="sessionSuspended">Session Suspended</option>
-            </select>
+      {/* Sektioner */}
+      <div className="flex flex-1 flex-row items-stretch">
+        
+        {/* Bil 1 */}
+        <div className="flex-1 flex flex-col items-center justify-center bg-gray-300 text-white p-4">
+          <h2 className="text-3xl font-bold mb-6 text-black">Bil 1</h2>
+          <div className="w-full max-w-md">
+            {/* Flagga */}
+            <div className="mb-6">
+              <label className="block text-xl font-semibold mb-2 text-black">Välj flagga</label>
+              <select
+                value={raceData.flag_1}
+                onChange={handleFlagChange}
+                className="w-full p-4 text-lg border rounded-md bg-gray-700 text-white"
+              >
+                <option value="none">Ingen flagga</option>
+                <option value="unsportsmanlike">Observation</option>
+                <option value="disqualified">Tävlingsbestraffning</option>
+                <option value="checker">Målflagga</option>
+                <option value="carDamage">Teknisk info</option>
+                <option value="sessionSuspended">Stoppa heat</option>
+              </select>
+            </div>
+
+            {/* Nummer */}
+            <div className="mb-6">
+              <label className="block text-xl font-semibold text-black mb-2">Bilnummer</label>
+              <input
+                type="text"
+                value={raceData.number_1}
+                onChange={handleNumberChange}
+                maxLength={3}
+                className="w-full p-4 text-lg border rounded-md bg-gray-700 text-white"
+              />
+            </div>
           </div>
 
-          {/* Nummer */}
-          <div className="mb-6">
-            <label className="block text-2xl font-semibold mb-2">
-              Enter Number
-            </label>
-            <input
-              type="text"
-              value={raceData.number}
-              onChange={handleNumberChange}
-              maxLength={3}
-              className="w-full p-4 text-xl border rounded-md bg-gray-700 text-white"
-            />
-          </div>
-
-          {/* Antal Varv */}
-          <div className="mb-6">
-            <label className="block text-2xl font-semibold mb-2">
-              Laps Left
-            </label>
-            <input
-              type="number"
-              value={raceData.lapsLeft}
-              onChange={handleLapsChange}
-              className="w-full p-4 text-xl border rounded-md bg-gray-700 text-white"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Höger: Förhandsvisning */}
-      <div className="flex-1 flex flex-col items-center justify-center bg-black text-white">
-        {/* Flagga */}
-        <div
-          className={`h-64 w-64 rounded-full border-8 border-white mb-8 ${
-            flagColors[raceData.flag]
-          }`}
-        ></div>
-
-        {/* Nummer */}
-        <div className="text-9xl font-extrabold tracking-widest">
-          {raceData.number}
+          {/* Flagga & Nummer Preview */}
+          <div
+            className={`h-32 w-32 mb-4 ${flagColors[raceData.flag_1]}`}
+          ></div>
+          <div className="text-5xl font-bold text-black">{raceData.number_1}</div>
         </div>
 
-        {/* Antal varv */}
-        <div className="text-6xl mt-8 font-semibold">
-          Laps Left: {raceData.lapsLeft}
+        {/* Bil 2 */}
+        <div className="flex-1 flex flex-col items-center justify-center bg-gray-300 text-white p-4">
+          <h2 className="text-3xl font-bold mb-6 text-black">Bil 2</h2>
+          <div className="w-full max-w-md">
+            {/* Flagga */}
+            <div className="mb-6">
+              <label className="block text-xl font-semibold mb-2 text-black">Välj flagga</label>
+              <select
+                value={raceData.flag_2}
+                onChange={handleFlagChange2}
+                className="w-full p-4 text-lg border rounded-md bg-gray-700 text-white"
+              >
+                <option value="none">Ingen flagga</option>
+                <option value="unsportsmanlike">Observation</option>
+                <option value="disqualified">Tävlingsbestraffning</option>
+                <option value="checker">Målflagga</option>
+                <option value="carDamage">Teknisk info</option>
+                <option value="sessionSuspended">Stoppa heat</option>
+              </select>
+            </div>
+
+            {/* Nummer */}
+            <div className="mb-6">
+              <label className="block text-xl font-semibold mb-2 text-black">Bilnummer</label>
+              <input
+                type="text"
+                value={raceData.number_2}
+                onChange={handleNumberChange2}
+                maxLength={3}
+                className="w-full p-4 text-lg border rounded-md bg-gray-700 text-white"
+              />
+            </div>
+          </div>
+
+          {/* Flagga & Nummer Preview */}
+          <div
+            className={`h-32 w-32 mb-4 ${flagColors[raceData.flag_2]}`}
+          ></div>
+          <div className="text-5xl font-bold text-black">{raceData.number_2}</div>
+        </div>
+
+        {/* Antal Varv */}
+        <div className="flex-1 flex flex-col items-center justify-center bg-gray-300 text-black p-4">
+          <h2 className="text-3xl font-bold mb-6">Antal Varv</h2>
+          <div className="w-full max-w-md">
+            {/* Antal Varv */}
+            <div className="mb-6">
+              <input
+                type="number"
+                value={raceData.lapsLeft}
+                onChange={handleLapsChange}
+                className="w-full p-4 text-lg border rounded-md bg-gray-700 text-white"
+              />
+            </div>
+          </div>
+
+          {/* Preview Antal Varv */}
+          <div className="text-5xl font-bold">Antal varv kvar: {raceData.lapsLeft}</div>
         </div>
       </div>
     </div>

@@ -87,47 +87,49 @@ button:focus-visible {
 
 .none-flag {
   width: 400px; /* Bredd på flaggan */
-  height: 400px; /* Höjd på flaggan */
-  background: black;
-  border: 0px solid black; /* Vit ram runt flaggan */
+  height: 300px; /* Höjd på flaggan */
+  background: bg-gray-300;
   box-sizing: border-box; /* Se till att ramen inkluderas i dimensionerna */
 }
 
 .unsportsmanlike {
   width: 400px; /* Bredd på flaggan */
-  height: 400px; /* Höjd på flaggan */
-  background: linear-gradient(135deg, black 50%, white 50%);
-  border: 4px solid white; /* Vit ram runt flaggan */
+  height: 300px; /* Höjd på flaggan */
+  background: linear-gradient(143deg, black 50%, white 50%);
   box-sizing: border-box; /* Se till att ramen inkluderas i dimensionerna */
 }
 
 .disqualified {
   width: 400px; /* Bredd på flaggan */
-  height: 400px; /* Höjd på flaggan */
+  height: 300px; /* Höjd på flaggan */
   background: black;
-  border: 4px solid white; /* Vit ram runt flaggan */
   box-sizing: border-box; /* Se till att ramen inkluderas i dimensionerna */
 }
 
 .flag {
-  width: 400px; /* Adjust the width */
-  height: 400px; /* Adjust the height */
-  background-size: cover; /* Ensure the image covers the entire area */
-  background-position: center; /* Center the image */
-  border: 4px solid white; /* Optional: Add a white border */
-  box-sizing: border-box; /* Include the border in the size */
+  width: 400px;
+  height: 300px;
+  background-image: url('./assets/Chequered_flag.jpeg');
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  animation: checkerBlink 1s infinite;
 }
 
-.flag-checker {
-  background-image: url('./assets/Chequered_flag.jpeg');
+@keyframes checkerBlink {
+  0%, 100% {
+    opacity: 1; /* Röd toning */
+  }
+  50% {
+    opacity: 0; /* Transparens */
+  }
 }
 
 .carDamage {
   width: 400px; /* Adjust the width */
-  height: 400px; /* Adjust the height */
+  height: 300px; /* Adjust the height */
   background-size: cover; /* Ensure the image covers the entire area */
   background-position: center; /* Center the image */
-  border: 4px solid white; /* Optional: Add a white border */
   box-sizing: border-box; /* Include the border in the size */
 }
 
@@ -137,18 +139,20 @@ button:focus-visible {
 
 .sessionSuspended {
   width: 400px; /* Bredd på flaggan */
-  height: 400px; /* Höjd på flaggan */
-  background-color: red; /* Startfärg (röd) */
-  border-radius: 50%; /* Gör den rund (valfritt) */
-  border: 4px solid white; /* Valfri vit ram */
+  height: 300px; /* Höjd på flaggan */
+  background-color: #FF0000; /* Startfärg (röd) */
   animation: blink 1s infinite; /* Animering som upprepas oändligt */
 }
 
 @keyframes blink {
   0%, 100% {
-    background-color: red; /* Röd färg */
+    background-color: #FF0000; /* Röd färg */
   }
   50% {
-    background-color: transparent; 
+    opacity: 0; /* Transparens */
   }
+}
+
+.lapsFont {
+  font-size: 300px;
 }
