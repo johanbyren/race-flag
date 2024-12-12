@@ -51,13 +51,30 @@ const CollapsibleNav: React.FC<CollapsibleNavProps> = ({ onToggle }) => {
       >
         <ul className="list-none p-4 mt-20">
           <li className="mb-4">
-            <NavLink to="/admin" className={({ isActive }) =>  `text-white text-xl py-2  ${isActive ? "border-b": ""}`}>
-              Admin
+            <NavLink to="/" className={({ isActive }) =>
+                `text-xl py-2 px-4 block rounded ${
+                  isActive ? "text-yellow-500 font-bold hover:text-yellow-500" : "text-white hover:text-gray-300"
+                }`
+              }>
+              Startsida
+            </NavLink>
+          </li>
+          <li className="mb-4">
+            <NavLink to="/admin" className={({ isActive }) =>
+                `text-xl py-2 px-4 block rounded ${
+                  isActive ? "text-yellow-500 font-bold hover:text-yellow-500" : "text-white hover:text-gray-300"
+                }`
+              }>
+              Inställningar
             </NavLink>
           </li>
           <li>
-            <NavLink to="/race" className={({ isActive }) =>  `text-white text-xl py-2  ${isActive ? "border-b": ""}`}>
-              TV Page
+            <NavLink to="/race" className={({ isActive }) =>
+                `text-xl py-2 px-4 block rounded ${
+                  isActive ? "text-yellow-500 font-bold hover:text-yellow-500" : "text-white hover:text-gray-300"
+                }`
+              }>
+              Presentation
             </NavLink>
           </li>
         </ul>

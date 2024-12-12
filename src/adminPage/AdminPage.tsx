@@ -39,15 +39,15 @@ const AdminPage: React.FC<AdminPageProps> = ({ raceData, setRaceData }) => {
   return (
     <div className="flex flex-col h-full w-full overflow-hidden">
       {/* Header */}
-      <header className="w-full bg-gray-300 text-black py-6">
-        <h1 className="text-5xl font-bold text-center">Admin Panel</h1>
+      <header className="w-full bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 text-black py-6">
+        <h1 className="text-5xl font-bold text-center">Information och inställningar</h1>
       </header>
 
       {/* Sektioner */}
-      <div className="flex flex-1 flex-row items-stretch">
+      <div className="flex flex-1 flex-row items-stretch bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400" >
         
         {/* Bil 1 */}
-        <div className="flex-1 flex flex-col items-center justify-center bg-gray-300 text-white p-4">
+        <div className="flex-1 flex flex-col items-center justify-center text-white p-4">
           <h2 className="text-3xl font-bold mb-6 text-black">Bil 1</h2>
           <div className="w-full max-w-md">
             {/* Flagga */}
@@ -88,7 +88,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ raceData, setRaceData }) => {
         </div>
 
         {/* Bil 2 */}
-        <div className="flex-1 flex flex-col items-center justify-center bg-gray-300 text-white p-4">
+        <div className="flex-1 flex flex-col items-center justify-center text-white p-4">
           <h2 className="text-3xl font-bold mb-6 text-black">Bil 2</h2>
           <div className="w-full max-w-md">
             {/* Flagga */}
@@ -129,7 +129,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ raceData, setRaceData }) => {
         </div>
 
         {/* Antal Varv */}
-        <div className="flex-1 flex flex-col items-center justify-center bg-gray-300 text-black p-4">
+        <div className="flex-1 flex flex-col items-center justify-center text-black p-4">
           <h2 className="text-3xl font-bold mb-6">Antal Varv</h2>
           <div className="w-full max-w-md">
             {/* Antal Varv */}
@@ -145,6 +145,14 @@ const AdminPage: React.FC<AdminPageProps> = ({ raceData, setRaceData }) => {
 
           {/* Preview Antal Varv */}
           <div className="text-5xl font-bold">Antal varv kvar: {raceData.lapsLeft}</div>
+
+          <div className="flex flex-col items-center justify-center mt-72 p-6">
+            <button
+              onClick={() => window.open('/race', '_blank')}
+              className="bg-gray-700 text-white px-6 py-3 rounded-lg text-xl hover:bg-gray-500 transition">
+              Öppna Presentationen i en ny flik.
+            </button>
+          </div>
         </div>
       </div>
     </div>

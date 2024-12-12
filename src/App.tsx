@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import AdminPage from "./adminPage/AdminPage";
 import TvPage from "./tvPage/TvPage"
+import StartPage from "./startPage/StartPage"
 import CollapsibleNav from "./leftMeny/CollapsibleNav";;
 
 export interface RaceData {
@@ -60,6 +61,7 @@ const App: React.FC = () => {
         <CollapsibleNav onToggle={setIsMenuOpen} />
         <main>
           <Routes>
+            <Route path="/" element={<StartPage/>} />
             <Route
               path="/admin"
               element={<AdminPage raceData={raceData} setRaceData={setRaceData} />}

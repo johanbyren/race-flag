@@ -95,8 +95,15 @@ button:focus-visible {
 .unsportsmanlike {
   width: 400px; /* Bredd på flaggan */
   height: 300px; /* Höjd på flaggan */
-  background: linear-gradient(143deg, black 50%, white 50%);
+  background-image: url('./assets/Black_and_white_flag_400_300.jpg');
   box-sizing: border-box; /* Se till att ramen inkluderas i dimensionerna */
+}
+
+.unsportsmanlike_big {
+  width: 800px; 
+  height: 400px; 
+  background-image: url('./assets/Black_and_white_flag_800_400.jpg');
+  box-sizing: border-box;
 }
 
 .disqualified {
@@ -137,6 +144,10 @@ button:focus-visible {
   background-image: url('./assets/Black_Flag_with_Orange_Circle.jpeg'); 
 }
 
+.orange-circle-flag-large {
+  background-image: url('./assets/Black_Flag_with_Orange_Circle_800_400.jpg'); 
+}
+
 .sessionSuspended {
   width: 400px; /* Bredd på flaggan */
   height: 300px; /* Höjd på flaggan */
@@ -156,3 +167,27 @@ button:focus-visible {
 .lapsFont {
   font-size: 300px;
 }
+
+@keyframes pulse-line {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.animate-pulse-line {
+  animation: pulse-line 5s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+
+
+
