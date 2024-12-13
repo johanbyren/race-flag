@@ -10,7 +10,8 @@ export default $config({
     };
   },
   async run() {
-    new sst.aws.StaticSite("MyWeb", {
+    new sst.aws.StaticSite("Raceflags", {
+      // domain: $app.stage === "production" ? "" : undefined,
       build: {
         command: "npm run build",
         output: "dist"
