@@ -36,6 +36,16 @@ const AdminPage: React.FC<AdminPageProps> = ({ raceData, setRaceData }) => {
     setRaceData({ ...raceData, lapsLeft: parseInt(e.target.value, 10) || 0 });
   };
 
+  const resetRaceData = () => {
+    setRaceData({
+      flag_1: "none",
+      flag_2: "none",
+      number_1: "",
+      number_2: "",
+      lapsLeft: 0,
+    });
+  };
+
   return (
     <div className="flex flex-col h-full w-full overflow-hidden">
       {/* Header */}
@@ -146,13 +156,22 @@ const AdminPage: React.FC<AdminPageProps> = ({ raceData, setRaceData }) => {
           {/* Preview Antal Varv */}
           <div className="text-5xl font-bold">Antal varv kvar: {raceData.lapsLeft}</div>
 
-          <div className="flex flex-col items-center justify-center mt-72 p-6">
+          <div className="flex flex-col items-center justify-center mt-60 p-6">
             <button
               onClick={() => window.open('/race', '_blank')}
               className="bg-gray-700 text-white px-6 py-3 rounded-lg text-xl hover:bg-gray-500 transition">
               Öppna Presentationen i en ny flik.
             </button>
           </div>
+
+          <div>
+            <button
+              onClick={resetRaceData}
+              className="bg-gray-700 text-white px-6 py-3 rounded-lg text-xl hover:bg-gray-500 transition">
+              Återställ Data
+            </button>
+          </div>
+
         </div>
       </div>
     </div>
