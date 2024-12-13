@@ -22,20 +22,20 @@ const TvPage: React.FC<TvPageProps> = ({ raceData }) => {
         <div className="flex flex-col justify-center items-start w-2/3 gap-16 p-8">
           {/* Flagga 1 och Nummer */}
           <div className="flex items-center gap-8">
-            <div className={`xl:h-[400px] xl:w-[800px] ${flagColors[raceData.flag_1]}`}></div>
+            <div className={`xl:h-[300px] xl:w-[600px] ${flagColors[raceData.flag_1]}`}></div>
             <div className="text-7xl lg:text-9xl font-bold">{raceData.number_1}</div>
           </div>
           {/* Flagga 2 och Nummer */}
           <div className="flex items-center gap-8">
-            <div className={`xl:h-[400px] xl:w-[800px] ${flagColors[raceData.flag_2]}`}></div>
+            <div className={`xl:h-[300px] xl:w-[600px] ${flagColors[raceData.flag_2]}`}></div>
             <div className="text-7xl lg:text-9xl font-bold">{raceData.number_2}</div>
           </div>
         </div>
 
         {/* Höger sektion: Antal varv */}
-        <div className="flex flex-col justify-center items-center w-1/3">
+        <div className="flex flex-col justify-center items-center w-1/3 flex-wrap">
           <div className="text-6xl lg:text-7xl font-extrabold">Varv kvar</div>
-          <div className="text-9xl lg:text-[400px] font-bold text-red-600 mt-4">
+          <div className="text-9xl lg:text-[300px] font-bold text-red-600 mt-4">
             {raceData.lapsLeft}
           </div>
         </div>
