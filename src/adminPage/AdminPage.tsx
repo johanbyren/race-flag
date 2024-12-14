@@ -54,7 +54,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ raceData, setRaceData }) => {
       </header>
 
       {/* Sektioner */}
-      <div className="flex flex-1 flex-row items-stretch bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400" >
+      <div className="flex flex-1 flex-row items-stretch bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400">
         
         {/* Bil 1 */}
         <div className="flex-1 flex flex-col items-center justify-center text-white p-4">
@@ -79,7 +79,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ raceData, setRaceData }) => {
 
             {/* Nummer */}
             <div className="mb-6">
-              <label className="block text-xl font-semibold text-black mb-2">Bilnummer</label>
+              <label className="block text-xl font-semibold mb-2 text-black">Bilnummer</label>
               <input
                 type="text"
                 value={raceData.number_1}
@@ -91,11 +91,10 @@ const AdminPage: React.FC<AdminPageProps> = ({ raceData, setRaceData }) => {
           </div>
 
           {/* Flagga & Nummer Preview */}
-          <div
-            className={`h-32 w-32 mb-4 ${flagColors[raceData.flag_1]}`}
-          ></div>
+          <div className={`h-32 w-32 mb-4 ${flagColors[raceData.flag_1]}`}></div>
           <div className="text-5xl font-bold text-black">{raceData.number_1}</div>
         </div>
+
 
         {/* Bil 2 */}
         <div className="flex-1 flex flex-col items-center justify-center text-white p-4">
@@ -132,15 +131,14 @@ const AdminPage: React.FC<AdminPageProps> = ({ raceData, setRaceData }) => {
           </div>
 
           {/* Flagga & Nummer Preview */}
-          <div
-            className={`h-32 w-32 mb-4 ${flagColors[raceData.flag_2]}`}
-          ></div>
+          <div className={`h-32 w-32 mb-4 ${flagColors[raceData.flag_2]}`}></div>
           <div className="text-5xl font-bold text-black">{raceData.number_2}</div>
         </div>
 
+
         {/* Antal Varv */}
         <div className="flex-1 flex flex-col items-center justify-center text-black p-4">
-          <h2 className="text-3xl font-bold mb-6">Antal Varv</h2>
+          <h2 className="text-3xl font-bold mb-6">Antal varv</h2>
           <div className="w-full max-w-md">
             {/* Antal Varv */}
             <div className="mb-6">
@@ -156,25 +154,25 @@ const AdminPage: React.FC<AdminPageProps> = ({ raceData, setRaceData }) => {
           {/* Preview Antal Varv */}
           <div className="text-5xl font-bold">Antal varv kvar: {raceData.lapsLeft}</div>
 
-          <div className="flex flex-col items-center justify-center mt-60 p-6">
+          <div className="flex flex-col items-center justify-center pt-20">
             <button
               onClick={() => window.open('/race', '_blank')}
               className="bg-gray-700 text-white px-6 py-3 rounded-lg text-xl hover:bg-gray-500 transition">
-              Öppna Presentationen i en ny flik.
+              Öppna Presentationen i ny flik.
             </button>
           </div>
 
-          <div>
+          <div className="flex flex-col items-center justify-center pt-6">
             <button
               onClick={resetRaceData}
               className="bg-gray-700 text-white px-6 py-3 rounded-lg text-xl hover:bg-gray-500 transition">
-              Återställ Data
+              Återställ data
             </button>
           </div>
-
         </div>
       </div>
     </div>
+
   );
 };
 
